@@ -23,8 +23,8 @@ jobs:
         run: ./.github/scripts/decrypt_secret.sh
         env:
           LARGE_SECRET_PASSPHRASE: ${{ secrets.token }}
-      - name: Test printing your secret (Remove this step in production)
-        run: cat $HOME/secrets/my_secret.json
+#      - name: Test printing your secret (Remove this step in production)
+#        run: cat $HOME/secrets/my_secret.json
 #   hello_world_job:
 #     runs-on: ubuntu-latest
 #     name: A job to say hello
