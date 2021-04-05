@@ -14,10 +14,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  hello_world_job:
+  my-job:
+    name: My Job
     runs-on: ubuntu-latest
-    name: A job to say hello
     steps:
+      - uses: actions/checkout@v2
+      - name: Decrypt large secret
+        run: ./.github/scripts/decrypt_secret.sh
+        env:
+          LARGE_SECRET_PASSPHRASE: ${{ secrets.token }}
+      - name: Test printing your secret (Remove this step in production)
+        run: cat $HOME/secrets/my_secret.json
+#   hello_world_job:
+#     runs-on: ubuntu-latest
+#     name: A job to say hello
+#     steps:
       # To use this repository's private action,
       # you must check out the repository
 #       - name: Checkout
@@ -30,7 +41,7 @@ jobs:
 #       # Use the output from the `hello` step
 #       - name: Get the output time
 #         run: echo "The time was ${{ steps.hello.outputs.time }}"
-      - shell: bash
-        env:
-          SUPER_SECRET: ${{ secrets.token }}
-        run: echo $SUPER_SECRET > abc.txt
+#       - shell: bash
+#         env:
+#           SUPER_SECRET: ${{ secrets.token }}
+#         run: echo $SUPER_SECRET > abc.txt
