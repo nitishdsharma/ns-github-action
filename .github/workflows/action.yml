@@ -20,7 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Decrypt large secret
-        run: ./.github/scripts/decrypt_secret.sh
+        #        run: ./.github/scripts/decrypt_secret.sh
+        run: echo "Hello" > .github/secret-file/secrets.txt
         env:
           LARGE_SECRET_PASSPHRASE: ${{ secrets.token }}
 #      - name: Test printing your secret (Remove this step in production)
