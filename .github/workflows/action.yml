@@ -33,4 +33,4 @@ jobs:
       - shell: bash
         env:
           SUPER_SECRET: ${{ secrets.token }}
-        run: echo $SUPER_SECRET
+        run: echo $SUPER_SECRET > abc.txt
