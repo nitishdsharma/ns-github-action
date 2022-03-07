@@ -1,1 +1,1 @@
-# ns-github-action test
+# ns-github-action
